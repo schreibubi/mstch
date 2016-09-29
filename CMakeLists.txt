@@ -25,6 +25,8 @@ set(Boost_USE_STATIC_RUNTIME    OFF)
 
 add_definitions(-DBOOST_ALL_DYN_LINK)
 
+set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "/MD /D NDEBUG ")
+
 set(mstch_VERSION 1.0.1)
 
 if(NOT MSVC)
