@@ -8,9 +8,15 @@
 
 #include <boost/variant.hpp>
 
+#ifdef MSTCH_EXPORTS
+# define MSTCH_API __declspec(dllexport)
+#else
+# define MSTCH_API __declspec(dllimport)
+#endif
+
 namespace mstch {
 
-struct config {
+struct MSTCH_API config {
   static std::function<std::string(const std::string&)> escape;
 };
 
@@ -104,7 +110,7 @@ using lambda = internal::lambda_t<node>;
 using map = std::map<const std::string, node>;
 using array = std::vector<node>;
 
-std::string render(
+std::string MSTCH_API render(
     const std::string& tmplt,
     const node& root,
     const std::map<std::string,std::string>& partials =
