@@ -22,6 +22,10 @@ class render_node: public boost::static_visitor<std::string> {
     return "";
   }
 
+  std::string operator()(const unsigned int& value) const {
+    return std::to_string(value);
+  }
+
   std::string operator()(const int& value) const {
     return std::to_string(value);
   }
