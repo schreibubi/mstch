@@ -22,12 +22,12 @@ set(SRC
     token.cpp
     utils.cpp)
 
-add_library(mstch STATIC ${SRC})
+add_library(mstch SHARED ${SRC})
 
 set_property(TARGET mstch PROPERTY VERSION ${mstch_VERSION})
 
 install(
-    TARGETS mstch EXPORT mstchTargets
+    TARGETS mstch DESTINATION bin EXPORT mstchTargets
     LIBRARY DESTINATION lib
     ARCHIVE DESTINATION lib)
 
